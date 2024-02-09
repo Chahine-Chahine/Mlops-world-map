@@ -18,8 +18,8 @@ const projection = d3
 
 const colorScale = d3
   .scaleThreshold()
-  .domain([1, 10, 20, 50, 100])
-  .range(d3.schemeOrRd[7]);
+  .domain([0, 1, 5, 10, 50, 100, 200, 250])
+  .range(d3.schemeOrRd[8]);
 
 const tooltip = d3
   .select("body")
@@ -67,7 +67,7 @@ function ready(error, topo) {
   const legend = svg
     .append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(" + 0 + ",280)");
+    .attr("transform", "translate(" + 0 + ",230)");
 
   const legendItemSize = 20;
   const legendSpacing = 5;
@@ -89,7 +89,7 @@ function ready(error, topo) {
       .style("fill", colorScale(d))
       .style("opacity", 0.8);
 
-    // Add text label to the right of the rectangle
+    // Draw the text next to it
     legendItem
       .append("text")
       .attr("x", legendItemSize + legendSpacing)
